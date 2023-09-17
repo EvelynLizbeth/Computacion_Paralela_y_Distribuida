@@ -1,1 +1,1 @@
-# Computacion_Paralela_y_Distribuida
+# Computación_Paralela_y_Distribuida
