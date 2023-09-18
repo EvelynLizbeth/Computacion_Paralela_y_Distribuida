@@ -3,7 +3,7 @@ using namespace std;
 #include <chrono>
 int MAX = 1000; 
 
-void firstLoops(){
+void loops(){
     int i, j;
     // double A[MAX][MAX], x[MAX], y[MAX];
     double **A, *x, *y;
@@ -31,6 +31,20 @@ void firstLoops(){
 
     cout << "Time(First pair of loops): " << chrono::duration_cast<chrono::microseconds>(end - begin).count() << " microseconds" << endl;
     
+    //*************************
+    //Assign y = 0
+    for (i = 0; i < MAX; i++)   y[i] = 0;
+    //Second pair of loops
+    begin = chrono::high_resolution_clock::now();
+    for (j = 0; j < MAX; j++)
+        for (i = 0; i < MAX; i++)
+            y[i] += A[i][j]*x[j];
+    end = chrono::high_resolution_clock::now();
+
+    cout << "Time(Second pair of loops): " << chrono::duration_cast<chrono::microseconds>(end - begin).count() << " microseconds" << endl;
+
+    //*************************
+
     for (i = 0; i < MAX; i++)
         delete[] A[i];
     delete[] A;
@@ -39,6 +53,6 @@ void firstLoops(){
 }
 
 int main(){
-    firstLoops();
+    loops();
     return 0;
 }

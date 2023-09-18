@@ -27,7 +27,7 @@ void secondLoops(){
     for (j = 0; j < MAX; j++)
         for (i = 0; i < MAX; i++)
             y[i] += A[i][j]*x[j];
-    auto end = std::chrono::high_resolution_clock::now();
+    auto end = chrono::high_resolution_clock::now();
 
     cout << "Time(Second pair of loops): " << chrono::duration_cast<chrono::microseconds>(end - begin).count() << " microseconds" << endl;
 
